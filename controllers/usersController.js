@@ -51,7 +51,5 @@ module.exports.create=function(req,res){
         res.redirect('back');
     };
 module.exports.createSession=function(req,res){
-    return res.render('signin.ejs',{
-        'title':'Login'
-    }) 
-};
+        res.redirect('/');
+    }
