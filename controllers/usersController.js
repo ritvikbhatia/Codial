@@ -1,8 +1,18 @@
 const User=require('../models/users');
 
 module.exports.profile=function(req,res){
-    console.log(" users controller loaded");
-    return res.end("User Profile");
+    console.log(" profile controller loaded");
+    User.findById(req.cookies.userID,function(err,user){
+        if(user)
+        {
+            console.log(req.cookies.userID);
+            return res.render("User_profile.ejs",{
+                name:user.name,
+                email:user.email
+            })
+        }
+    return res.redirect('/users/signin');
+    });
     
 }
 
@@ -51,7 +61,21 @@ module.exports.create=function(req,res){
         res.redirect('back');
     };
 module.exports.createSession=function(req,res){
-    return res.render('signin.ejs',{
-        'title':'Login'
-    }) 
-};
+        User.findOne({email:req.body.email},function(err,user){
+            if(err) console.log("error in finding");
+            if(user)
+            {
+                if(user.password==req.body.password)
+                {
+                    res.cookie('userID',user.id);
+                    res.redirect('/users/profile');
+                }
+                else{
+                    return res.redirect('back');
+                }
+            }
+            else
+                return res.redirect('back');
+            
+        })
+    };
