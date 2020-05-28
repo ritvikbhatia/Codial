@@ -15,7 +15,7 @@ app.use(sassMiddleware({
     dest:'./assets/css',
     debug:true,
     outputStyle:'expanded',
-    prefix:'css'
+    prefix:'/css'
 }))
 
 app.use(cookieParser());
