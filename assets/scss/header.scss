@@ -4,11 +4,21 @@ header{
     width: 100vw;
     display: flex;
     flex-direction: row;
-    span{
-            a{
-            color:white;
-            text-decoration: none;
-            font-size: medium;
-        }
+    justify-content: space-between;
+    align-items: center;
+    div{
+        span{
+            margin: 2vw;
+                a{
+                color:white;
+                text-decoration: none;
+                font-size: medium;
+                }
+            }
+    }
+    div{
+        margin: 2vw;
+        color:white;
+        font-size: 24px;
     }
 }
