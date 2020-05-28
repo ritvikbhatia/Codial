@@ -2,7 +2,7 @@ const User=require('../models/users');
 
 module.exports.profile=function(req,res){
     console.log(" users controller loaded");
-    return res.end("User Profile");
+    return res.render('users_profile.ejs');
     
 }
 
@@ -52,4 +52,8 @@ module.exports.create=function(req,res){
     };
 module.exports.createSession=function(req,res){
         res.redirect('/');
+    }
+module.exports.destroySession=function(req,res){
+    req.logout();    
+    res.redirect('/');
     }

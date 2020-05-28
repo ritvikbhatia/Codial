@@ -6,7 +6,8 @@ const expressLayouts=require('express-ejs-layouts');
 const db=require('./config/mongoose');
 const session =require('express-session');
 const passport=require('passport');
-passportLocal=require('./config/passport-local-strategy');
+const passportLocal=require('./config/passport-local-strategy');
+const mongoStore=require('connect-mongo')(session);
 
 app.use(cookieParser());
 app.use(express.urlencoded());
@@ -27,10 +28,21 @@ app.use(session({
     resave:false,
     cookie:{
         maxAge:(60*10008100)
-    }
+    },
+    store:new mongoStore(
+        {
+        mongooseConnection:db,
+        autoRemove:'disabled'
+    },function(err){
+        console.log("mongo store success");
+        
+    }), 
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser)
+
 //use express router
 app.use('/',require("./routes"))
 
