@@ -4,7 +4,7 @@
 <h1>
     Home Page
 </h1>
-
+<% if(locals.user){%>
 <section id="feed-posts">
     <h4>Posts</h4>
     <form action="/posts/createpost" method="POST" id="newpostform">
@@ -12,3 +12,4 @@
         <input type="submit" value="Post">
     </form>
 </section>
+<%}%>
