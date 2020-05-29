@@ -2,11 +2,25 @@
 <%for( var i of Posts){%>
 <h2><%=i.user.name%></h2>
 <h3 style="color: brown;"><%=i.content%></h3>
-<form action="" method="POST"> 
+<form action="/comments/create" method="POST"> 
     add comments
     <textarea name="content" cols="60" rows="3"></textarea>
-    <input type="hidden" value=<%=i._id%>>
+    <input type="hidden" name="post" value="<%= i._id %>" >
     <button type="submit">Submit</button>
 </form>
 <br>
+<div class="post-comments-list">
+    <ul id="post-comments-<%= i._id %>">
+        <% for (comment of i.comments){%>
+            
+        <p>
+            <%= comment.content %>
+            <br>
+            <small>
+                <%= comment.user.name %>
+            </small>
+        </p>    
+        <%} %>
+    </ul>
+</div>
 <%}%>

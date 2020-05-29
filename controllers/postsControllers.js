@@ -5,6 +5,7 @@ module.exports.comments=function(req,res){
     return res.end("UNo new comment");
     
 }
+
 module.exports.createpost=function(req,res){
     Post.create({
         user:req.user._id,
@@ -12,12 +13,17 @@ module.exports.createpost=function(req,res){
     },function(err,user){
         if(err)
             console.log(err);
-        Post.find({},
-        Post.find({}).populate('user').exec(function(err,posts)
+        Post.find({}).populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
+        }).exec(function(err,posts)
         {
             if(err){console.log('error in mongo');}
             
             return res.render('posts.ejs',{Posts:posts});
-        }))
+        })
     });
     }
