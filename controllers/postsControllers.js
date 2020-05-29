@@ -12,10 +12,12 @@ module.exports.createpost=function(req,res){
     },function(err,user){
         if(err)
             console.log(err);
-        Post.find({},function(err,posts)
+        Post.find({},
+        Post.find({}).populate('user').exec(function(err,posts)
         {
             if(err){console.log('error in mongo');}
+            
             return res.render('posts.ejs',{Posts:posts});
-        })
+        }))
     });
     }
