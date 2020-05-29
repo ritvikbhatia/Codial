@@ -1,5 +1,12 @@
 <h4>POSTS</h4>
 <%for( var i of Posts){%>
 <h2><%=i.user.name%></h2>
-<h3><%=i.content%></h3>
+<h3 style="color: brown;"><%=i.content%></h3>
+<form action="" method="POST"> 
+    add comments
+    <textarea name="content" cols="60" rows="3"></textarea>
+    <input type="hidden" value=<%=i._id%>>
+    <button type="submit">Submit</button>
+</form>
+<br>
 <%}%>
