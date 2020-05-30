@@ -1,5 +1,6 @@
 body {
   margin: 0;
-  /* text-align: center; */ }
+  /* text-align: center; */
+  background-color: lightblue; }
   body #layout-main {
     height: 100%; }
