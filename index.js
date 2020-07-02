@@ -16,6 +16,7 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const env=require('./config/environment');
+const logger=require('morgan');
 
 if(env.name=='development'){
 app.use(sassMiddleware({
@@ -29,6 +30,8 @@ app.use(sassMiddleware({
 app.use(express.urlencoded());
 
 app.use(cookieParser());
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(express.static(env.asset_path));
 // make the uploads path available to the browser

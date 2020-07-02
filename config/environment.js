@@ -1,3 +1,15 @@
+const fs = require('fs');
+const rfs = require('rotating-file-stream');
+const path = require('path');
+
+
+const logDirectory = path.join(__dirname, '../production_logs');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+const accessLogStream = rfs.createStream('access.log', {
+    interval: '1d',
+    path: logDirectory
+});
 
 const development={
     name:'development',
@@ -17,7 +29,11 @@ const development={
     gclientID: "313233209747-dnqmail3j800a2jvsuckqhohodhs7i63.apps.googleusercontent.com",
     gclientSecret: "0FXb5EBWa4xRfJ8jR-1HKMd2",
     gcallbackURL: "http://localhost:8000/users/auth/google/callback",
-    jwtkey:'codeial'
+    jwtkey:'codeial',
+    morgan: {
+        mode: 'dev',
+        options: {stream: accessLogStream}
+    }
 }
 
 const production={
@@ -38,7 +54,11 @@ const production={
     gclientID: "313233209747-dnqmail3j800a2jvsuckqhohodhs7i63.apps.googleusercontent.com",
     gclientSecret: "0FXb5EBWa4xRfJ8jR-1HKMd2",
     gcallbackURL: "http://codial.com/users/auth/google/callback",
-    jwtkey:'lkhXBtaxwKsZoq2UzCsdvjwdbjbKw7f4'
+    jwtkey:'lkhXBtaxwKsZoq2UzCsdvjwdbjbKw7f4',
+    morgan: {
+        mode: 'combined',
+        options: {stream: accessLogStream}
+    }
 }
 console.log('********',  process.env.codial_session_cookie);
 

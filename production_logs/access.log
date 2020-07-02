@@ -1,0 +1,7 @@
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/users/sign-up" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET /css/layout.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET /css/header.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET /js/home_post_comments.js HTTP/1.1" 404 163 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET /css/footer.css HTTP/1.1" 404 153 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET /css/home.css HTTP/1.1" 404 151 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [02/Jul/2020:08:36:24 +0000] "GET /js/home_posts.js HTTP/1.1" 404 155 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
