@@ -17,7 +17,7 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const env=require('./config/environment');
 
-
+if(env.name=='development'){
 app.use(sassMiddleware({
     src: path.join(__dirname, env.asset_path,'/scss'),
     dest: path.join(__dirname, env.asset_path,'/css'),
@@ -25,6 +25,7 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }));
+}
 app.use(express.urlencoded());
 
 app.use(cookieParser());
