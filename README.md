@@ -7,7 +7,7 @@ A completely scalable social media website currently in developement .
 This code follows MVC pattern to make it more scalable:
 /routes - containes all the routes.
 
-/assets - static js css and image files.
+/assets - static javascript css and image files.
 
 /controller - contains functions to connect to different views.
 
