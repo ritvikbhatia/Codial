@@ -4,7 +4,7 @@ A completely scalable social media website currently in developement.
 #Directory Structure
 
 
-This code follows MVC pattern to make it more scalable:
+This code follows MVC pattern to make it more scalable :
 /routes - containes all the routes.
 
 /assets - static javascript css and image files.
